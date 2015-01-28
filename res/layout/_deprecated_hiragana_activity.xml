@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/hiragana_lesson"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" 
+   android:orientation="vertical"
+   android:padding="10dp"
+   >
+        
+        <TextView
+            android:id="@+id/first_lesson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:text="@string/firstLesson"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/second_lesson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/secondLesson" 
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/third_lesson"
+            android:layout_width="match_parent"
+            android:layout_height= "wrap_content"
+            android:text="@string/thirdLesson" 
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+        
+        <TextView
+            android:id="@+id/fourth_lesson"
+            android:layout_width="match_parent"
+            android:layout_height= "wrap_content"
+            android:text="@string/fourthLesson" 
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+		<TextView
+            android:id="@+id/fifth_lesson"
+            android:layout_width="match_parent"
+            android:layout_height= "wrap_content"
+            android:text="@string/fifthLesson" 
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+		<TextView
+            android:id="@+id/sixth_lesson"
+            android:layout_width="match_parent"
+            android:layout_height= "wrap_content"
+            android:text="@string/sixthLesson" 
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+		<TextView
+            android:id="@+id/seventh_lesson"
+            android:layout_width="match_parent"
+            android:layout_height= "wrap_content"
+            android:text="@string/seventhLesson" 
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+
+		<TextView
+            android:id="@+id/eigth_lesson"
+            android:layout_width="match_parent"
+            android:layout_height= "wrap_content"
+            android:text="@string/eighthLesson" 
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+		<TextView
+            android:id="@+id/ninth_lesson"
+            android:layout_width="match_parent"
+            android:layout_height= "wrap_content"
+            android:text="@string/ninthLesson" 
+            android:singleLine="true"
+            android:ellipsize="end"
+            />        
+</LinearLayout>

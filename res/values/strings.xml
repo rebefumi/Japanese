@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Japones</string>
+    
+    <string name="hiraganaText">Hiragana</string>
+    <string name="katakanaText">Katakana</string>
+    
+    <string name="firstLesson">a, i, u, e, o</string>
+    <string name="secondLesson">ka, ki, ku, ke, ko - ga, gi, gu ,ge, go</string>
+    <string name="thirdLesson">sa, shi, su, se, so - za, ji, zu, ze, zo</string>
+    <string name="fourthLesson">ta, chi, tsu, te, to - da, ji, zu, de ,do</string>
+    <string name="fifthLesson">na, ni, nu, ne, no</string>
+    <string name="sixthLesson">ha, hi, fu, he, ho - ba, bi, bu, be, bo - pa, pi, pu, pe, po</string>
+    <string name="seventhLesson">ma, mi, mu, me, mo</string>
+    <string name="eighthLesson">ra, ri, ru, re, ro</string>
+    <string name="ninthLesson">ya, yu, yo, wa, (w)o, n</string>
+    
+    <string name="firstLessonKata">a, i, u, e, o</string>
+    <string name="secondLessonKata">ka, ki, ku, ke, ko - ga, gi, gu ,ge, go</string>
+    <string name="thirdLessonKata">sa, shi, su, se, so - za, ji, zu, ze, zo</string>
+    <string name="fourthLessonKata">ta, chi, tsu, te, to - da, ji, zu, de ,do</string>
+    <string name="fifthLessonKata">na, ni, nu, ne, no</string>
+    <string name="sixthLessonKata">ha, hi, fu, he, ho - ba, bi, bu, be, bo - pa, pi, pu, pe, po</string>
+    <string name="seventhLessonKata">ma, mi, mu, me, mo</string>
+    <string name="eighthLessonKata">ra, ri, ru, re, ro</string>
+    <string name="ninthLessonKata">ya, yu, yo, wa, (w)o, n</string>
+    
+    
+    <string name="defaultString">Select a lesson to view!</string>
+    
+    <string name="firstLessonText">Text about a , e , i , o , u </string>
+    <string name="secondLessonText">Text about ka, ki, ku, ke, ko - ga, gi, gu ,ge, go</string>
+    <string name="thirdLessonText">Text aboutsa, shi, su, se, so - za, ji, zu, ze, zo</string>
+    <string name="fourthLessonText">Text about ta, chi, tsu, te, to - da, ji, zu, de ,do</string>
+    <string name="fifthLessonText">Text about na, ni, nu, ne, no</string>
+    <string name="sixthLessonText">Text about ha, hi, fu, he, ho - ba, bi, bu, be, bo - pa, pi, pu, pe, po</string>
+    <string name="seventhLessonText">Text about ma, mi, mu, me, mo</string>
+    <string name="eighthLessonText">Text about ra, ri, ru, re, ro</string>
+    <string name="ninthLessonText">Text about ya, yu, yo, wa, (w)o, n</string>
+    
+    <string name="firstLessonTextKata">Text about a , e , i , o , u </string>
+    <string name="secondLessonTextKata">Text about ka, ki, ku, ke, ko - ga, gi, gu ,ge, go</string>
+    <string name="thirdLessonTextKata">Text aboutsa, shi, su, se, so - za, ji, zu, ze, zo</string>
+    <string name="fourthLessonTextKata">Text about ta, chi, tsu, te, to - da, ji, zu, de ,do</string>
+    <string name="fifthLessonTextKata">Text about na, ni, nu, ne, no</string>
+    <string name="sixthLessonTextKata">Text about ha, hi, fu, he, ho - ba, bi, bu, be, bo - pa, pi, pu, pe, po</string>
+    <string name="seventhLessonTextKata">Text about ma, mi, mu, me, mo</string>
+    <string name="eighthLessonTextKata">Text about ra, ri, ru, re, ro</string>
+    <string name="ninthLessonTextKata">Text about ya, yu, yo, wa, (w)o, n</string>
+    
+    <string name="title_activity_list_fragment">FriendsFragment</string>
+    <string name="title_activity_text_fragment">FeedFragment</string>
+    
+    <string name="start">Start</string>
+    
+    <string name="action_settings">Settings</string>
+
+</resources>
