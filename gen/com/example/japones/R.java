@@ -1096,7 +1096,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f05002e;
-        public static final int action_settings=0x7f050051;
+        public static final int action_settings=0x7f050054;
         public static final int activity_chooser_view_content=0x7f05002f;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1117,7 +1117,8 @@ containing a value of this type.
         public static final int first_lesson=0x7f05001b;
         public static final int fourth_lesson=0x7f05001e;
         public static final int frags=0x7f05004b;
-        public static final int gridview=0x7f050050;
+        public static final int gridImage=0x7f050053;
+        public static final int gridText=0x7f050051;
         public static final int hiragana=0x7f050047;
         public static final int hiragana_container=0x7f05004a;
         public static final int hiragana_lesson=0x7f05001a;
@@ -1127,6 +1128,7 @@ containing a value of this type.
         public static final int icon=0x7f050034;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050031;
+        public static final int imageQ=0x7f050050;
         public static final int katakana=0x7f050048;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050033;
@@ -1160,6 +1162,7 @@ containing a value of this type.
         public static final int start=0x7f05004f;
         public static final int submit_area=0x7f050043;
         public static final int tabMode=0x7f050002;
+        public static final int textQ=0x7f050052;
         public static final int text_item=0x7f05004c;
         public static final int third_lesson=0x7f05001d;
         public static final int title=0x7f050035;

@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -18,6 +18,7 @@ public class LessonsText extends Fragment {
 	private Button startButton;
 	private final static  String [] TEXT = new String [9];
 	private String root;
+	private int level = 0;
 	
 	public LessonsText() {
 		super ();
@@ -39,6 +40,7 @@ public class LessonsText extends Fragment {
              @SuppressLint("NewApi") 
              public void onClick(View v) {
              	Intent intent = new Intent(getActivity(), LessonActivity.class);
+             	intent.putExtra ("level", level);
              	startActivity(intent);
              }
          });
