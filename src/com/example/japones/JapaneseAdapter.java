@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
 public class JapaneseAdapter {
 
@@ -44,11 +45,38 @@ public class JapaneseAdapter {
         mDbHelper.close(); 
     } 
     
-    public Cursor getImagesHiragana (){
-    	String sql = "SELECT kanji FROM hiragana WHERE nivel=1";
+    public Cursor getAnswerHiragana (int level, String table){
+    	String sql = "";
+
+    	Cursor mCount= mDb.rawQuery("SELECT count(_id) FROM "+ table +" WHERE nivel ="+ level, null);
+    	mCount.moveToFirst();
+    	int count= mCount.getInt(0);
+    	mCount.close();
+    	
+    	if (count < 6){
+    		sql = "SELECT * FROM "+ table +" WHERE nivel != "+level+" ORDER BY RANDOM() LIMIT 1";
+        	Cursor mCurId = mDb.rawQuery(sql, null); 
+        	int id = 0;
+        	if (mCurId.moveToFirst()) {
+        		id = mCurId.getInt(mCurId.getColumnIndex("_id"));
+        	}
+        	mCurId.close();
+        	sql = "SELECT * FROM "+ table +" WHERE nivel="+ level +" OR _id =" + id + " ORDER BY RANDOM() LIMIT 6";
+    	}
+    	else{
+        	sql = "SELECT * FROM "+ table +" WHERE nivel="+ level +" ORDER BY RANDOM() LIMIT 6";
+    	}
+    	
     	Cursor mCur = mDb.rawQuery(sql, null); 
     	return mCur; 
     }
+    
+    public Cursor getQuestion(int level, String table){
+    	String sql = "SELECT * FROM "+ table +" WHERE nivel="+ level +" ORDER BY RANDOM() LIMIT 1";
+    	Cursor mCur = mDb.rawQuery(sql, null);
+    	return mCur;
+    }
+    
 //     public Cursor getTestData() { 
 //         try { 
 //             String sql ="   " ; 
