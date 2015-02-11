@@ -84,7 +84,7 @@ public class JapaneseAdapter {
     			cv.put("lesson", result.getLesson());
     			cv.put("date", "datetime()");
     			
-    			mDb.insert("Employees", null, cv);
+    			mDb.insert("results", null, cv);
 
     		return true;
     			

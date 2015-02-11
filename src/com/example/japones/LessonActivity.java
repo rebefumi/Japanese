@@ -272,7 +272,7 @@ public class ImageAdapter extends BaseAdapter {
 			results.incrementLose();
 		}	
 		
-		if (count <=10){
+		if (count < maxTypeQuest){
 			Button mButton = new Button(this);
 			mButton.setText("Next");
 			
@@ -289,7 +289,7 @@ public class ImageAdapter extends BaseAdapter {
 		    });
 		    this.addContentView(ll, lp);
 		}else{
-			results.insertBD();
+			results.insertBD(mDbHelper);
 			Intent intent = new Intent (LessonActivity.this, ResultsLesson.class);
          	startActivity(intent);	
 		}

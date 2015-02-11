@@ -1,18 +1,20 @@
 package com.example.japones;
 
-public class ResultData {
+import android.app.Activity;
+import android.content.Context;
+
+public class ResultData{
 
 private int lesson;
 	private String curse;
 	private int questWin = 0;
 	private int questLose = 0;
-	private JapaneseAdapter mDbHelper;
 
 	public ResultData(int lesson, String curse) {
 		super();
 		this.lesson = lesson;
 		this.curse = curse;
-		mDbHelper = new JapaneseAdapter(null);  
+		 
 	}
 
 	public int getLesson() {
@@ -55,7 +57,7 @@ private int lesson;
 		this.questLose ++;
 	}
 	
-	public void insertBD (){
+	public void insertBD (JapaneseAdapter mDbHelper){
 		mDbHelper.open();
 		mDbHelper.insertStadistics(this);
 	}

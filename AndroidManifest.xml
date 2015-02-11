@@ -8,6 +8,9 @@
         android:minSdkVersion="9"
         android:targetSdkVersion="18" />
 
+    <uses-permission
+     android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -25,6 +28,8 @@
         <activity android:name=".LessonsMenuActivity" >
         </activity>
         <activity android:name=".LessonActivity" >
+        </activity>
+        <activity android:name=".ResultsLesson" >
         </activity>
         <activity
             android:name="course.labs.fragmentslab.HiraganaList"
