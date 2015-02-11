@@ -19,6 +19,7 @@ public class LessonsText extends Fragment {
 	private final static  String [] TEXT = new String [9];
 	private String root;
 	private int level = 0;
+
 	
 	public LessonsText() {
 		super ();
@@ -41,6 +42,7 @@ public class LessonsText extends Fragment {
              public void onClick(View v) {
              	Intent intent = new Intent(getActivity(), LessonActivity.class);
              	intent.putExtra ("level", level);
+             	intent.putExtra ("table", root);
              	startActivity(intent);
              }
          });
@@ -79,6 +81,7 @@ public class LessonsText extends Fragment {
 	}
 
 	void updateFeedDisplay(int position) {
+		level = position+1;
 		View thisView = getView ();
 		mTextView = (TextView) thisView.findViewById(R.id.hiragana_texto);
 		

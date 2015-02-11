@@ -7,7 +7,7 @@
         android:id="@+id/imageQ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/a"/>
+        android:src="@drawable/hiragana_a"/>
     
 	<GridView
 	    android:id="@+id/gridText"
@@ -20,5 +20,9 @@
 	    android:stretchMode="columnWidth"
 	    android:gravity="center"
 	/>
-	
+	<LinearLayout
+	android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id = "@+id/quest_layout" ></LinearLayout>
 </LinearLayout>

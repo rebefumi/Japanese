@@ -7,8 +7,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import android.widget.Toast;
 
 public class JapaneseAdapter {
 
@@ -76,6 +74,26 @@ public class JapaneseAdapter {
     	Cursor mCur = mDb.rawQuery(sql, null);
     	return mCur;
     }
+    
+    public boolean insertStadistics (ResultData result){
+        try{
+    			ContentValues cv = new ContentValues();
+    			cv.put("correct", result.getQuestWin());
+    			cv.put("fail", result.getQuestLose());
+    			cv.put("curse", result.getCurse());
+    			cv.put("lesson", result.getLesson());
+    			cv.put("date", "datetime()");
+    			
+    			mDb.insert("Employees", null, cv);
+
+    		return true;
+    			
+    		}
+    		catch(Exception ex){
+    			return false;
+    			
+    }
+}
     
 //     public Cursor getTestData() { 
 //         try { 
