@@ -69,7 +69,7 @@ import android.widget.TextView;
 				
 				mGridviewText.setOnItemClickListener(new OnItemClickListener() {
 					public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-						verifyQuestionGrid (position, v);
+						verifyQuestionGrid (position, v, parent);
 						
 					}
 				});
@@ -84,7 +84,7 @@ import android.widget.TextView;
 				
 				mGridviewImage.setOnItemClickListener(new OnItemClickListener() {
 					public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-						verifyQuestionGrid (position, v);
+						verifyQuestionGrid (position, v, parent);
 						
 					}
 				});
@@ -259,7 +259,7 @@ public class ImageAdapter extends BaseAdapter {
 		this.question = mCursor.getInt(mCursor.getColumnIndex("_id"));
 	}
 	
-	private void verifyQuestionGrid (int position, View v){
+	private void verifyQuestionGrid (int position, View v, ViewGroup parent){
 		count++;
 
 		int answer = mAnswerIds[position];
@@ -269,6 +269,8 @@ public class ImageAdapter extends BaseAdapter {
 			results.incrementWin();
 		}else{
 			v.setBackgroundColor(Color.RED);
+			View view  = parent.getChildAt(questPosition);
+			view.setBackgroundColor(Color.GREEN);
 			results.incrementLose();
 		}	
 		
