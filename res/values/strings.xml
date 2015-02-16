@@ -49,10 +49,11 @@
     <string name="eighthLessonTextKata">Text about ra, ri, ru, re, ro</string>
     <string name="ninthLessonTextKata">Text about ya, yu, yo, wa, (w)o, n</string>
     
-    <string name="title_activity_list_fragment">FriendsFragment</string>
-    <string name="title_activity_text_fragment">FeedFragment</string>
-    
+    <string name="results">YOUR RESULTS</string>
+
     <string name="start">Start</string>
+    <string name="home">Home</string>
+    <string name="repeat">Repeat</string>
     
     <string name="action_settings">Settings</string>
 

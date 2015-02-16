@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.japones"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0" 
+    android:finishOnTaskLaunch="true" >
 
+
+    
     <uses-sdk
         android:minSdkVersion="9"
         android:targetSdkVersion="18" />
@@ -33,11 +36,11 @@
         </activity>
         <activity
             android:name="course.labs.fragmentslab.HiraganaList"
-            android:label="@string/title_activity_list_fragment" >
+             >
         </activity>
         <activity
             android:name="course.labs.fragmentslab.HiraganaText"
-            android:label="@string/title_activity_text_fragment" >
+            >
         </activity>
     </application>
 

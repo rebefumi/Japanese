@@ -34,8 +34,8 @@ import android.widget.TextView;
 	private int questPosition;
 	private Integer [] mAnswerIds = new Integer [6];
 	private int count = 0;
-	private int maxQuest = 2;
-	private int maxTypeQuest = 2;
+	private int MAX_QUEST = 2;
+	private int MAX_TYPE_QUEST = 2;
 	private ResultData results; 
 	
 	static final int RESOLVER_QUESTION = 1;
@@ -96,7 +96,7 @@ import android.widget.TextView;
 
 	private int selectQuestion(){
 		Random ran = new Random();
-		int x = ran.nextInt(maxTypeQuest) + 1;
+		int x = ran.nextInt(MAX_TYPE_QUEST) + 1;
 		return x;
 	}
 
@@ -272,7 +272,7 @@ public class ImageAdapter extends BaseAdapter {
 			results.incrementLose();
 		}	
 		
-		if (count < maxTypeQuest){
+		if (count < MAX_QUEST){
 			Button mButton = new Button(this);
 			mButton.setText("Next");
 			
@@ -290,8 +290,44 @@ public class ImageAdapter extends BaseAdapter {
 		    this.addContentView(ll, lp);
 		}else{
 			results.insertBD(mDbHelper);
-			Intent intent = new Intent (LessonActivity.this, ResultsLesson.class);
-         	startActivity(intent);	
+			showResults();
 		}
+	}
+
+	private void showResults() {
+		setContentView(R.layout.stadistics_lesson);
+		String aux = "";
+		float rating = (100 * results.getQuestWin())/MAX_QUEST;
+		TextView mTextRating = (TextView) findViewById(R.id.textResultsRating);
+		aux = rating + " %";
+		mTextRating.setText(aux);
+		TextView mTextGood = (TextView) findViewById(R.id.textResultsGood);
+		aux = results.getQuestWin() + " questions";
+		mTextGood.setText(aux);
+		TextView mTextBad = (TextView) findViewById(R.id.textResultsBad);
+		aux = results.getQuestLose() + " questions";
+		mTextBad.setText(aux);
+		
+		Button mHomeButton = (Button) findViewById(R.id.home);
+		Button mResetButton = (Button) findViewById(R.id.repeat);
+		
+		mHomeButton.setOnClickListener(new OnClickListener() {
+            @SuppressLint("NewApi") 
+            public void onClick(View v) {
+            	Intent intent = new Intent(LessonActivity.this, LessonsMenuActivity.class);
+            	intent.putExtra ("alphabet", table);
+            	finish();
+            	startActivity(intent);
+            }
+		});
+		
+		mResetButton.setOnClickListener(new OnClickListener() {
+            @SuppressLint("NewApi") 
+            public void onClick(View v) {
+            	Intent intent = getIntent();
+            	finish();
+            	startActivity(intent);
+            }
+		});
 	}
 }

@@ -1148,7 +1148,11 @@ containing a value of this type.
         public static final int hiragana_zi=0x7f02009b;
         public static final int hiragana_zo=0x7f02009c;
         public static final int hiragana_zu=0x7f02009d;
-        public static final int ic_launcher=0x7f02009e;
+        public static final int ic_action_bad=0x7f02009e;
+        public static final int ic_action_good=0x7f02009f;
+        public static final int ic_action_half_important=0x7f0200a0;
+        public static final int ic_launcher=0x7f0200a1;
+        public static final int stadistics=0x7f0200a2;
     }
     public static final class id {
         public static final int action_bar=0x7f050026;
@@ -1162,9 +1166,10 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f05002e;
-        public static final int action_settings=0x7f050055;
+        public static final int action_settings=0x7f05005e;
         public static final int activity_chooser_view_content=0x7f05002f;
         public static final int always=0x7f05000b;
+        public static final int backStats=0x7f050055;
         public static final int beginning=0x7f050011;
         public static final int checkbox=0x7f050037;
         public static final int collapseActionView=0x7f05000d;
@@ -1208,6 +1213,11 @@ containing a value of this type.
         public static final int quest_layout=0x7f050052;
         public static final int questions=0x7f050049;
         public static final int radio=0x7f050039;
+        public static final int repeat=0x7f05005d;
+        public static final int results=0x7f050056;
+        public static final int resultsBad=0x7f05005b;
+        public static final int resultsGood=0x7f050059;
+        public static final int resultsRating=0x7f050057;
         public static final int search_badge=0x7f05003c;
         public static final int search_bar=0x7f05003b;
         public static final int search_button=0x7f05003d;
@@ -1230,6 +1240,9 @@ containing a value of this type.
         public static final int submit_area=0x7f050043;
         public static final int tabMode=0x7f050002;
         public static final int textQ=0x7f050053;
+        public static final int textResultsBad=0x7f05005c;
+        public static final int textResultsGood=0x7f05005a;
+        public static final int textResultsRating=0x7f050058;
         public static final int text_item=0x7f05004c;
         public static final int third_lesson=0x7f05001d;
         public static final int title=0x7f050035;
@@ -1297,7 +1310,8 @@ containing a value of this type.
         public static final int question_type_1=0x7f03001e;
         public static final int question_type_2=0x7f03001f;
         public static final int question_type_3=0x7f030020;
-        public static final int support_simple_spinner_dropdown_item=0x7f030021;
+        public static final int stadistics_lesson=0x7f030021;
+        public static final int support_simple_spinner_dropdown_item=0x7f030022;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -1343,7 +1357,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_settings=0x7f0a0038;
+        public static final int action_settings=0x7f0a0039;
         public static final int app_name=0x7f0a000d;
         public static final int defaultString=0x7f0a0022;
         public static final int eighthLesson=0x7f0a0017;
@@ -1363,11 +1377,14 @@ containing a value of this type.
         public static final int fourthLessonText=0x7f0a0026;
         public static final int fourthLessonTextKata=0x7f0a002f;
         public static final int hiraganaText=0x7f0a000e;
+        public static final int home=0x7f0a0037;
         public static final int katakanaText=0x7f0a000f;
         public static final int ninthLesson=0x7f0a0018;
         public static final int ninthLessonKata=0x7f0a0021;
         public static final int ninthLessonText=0x7f0a002b;
         public static final int ninthLessonTextKata=0x7f0a0034;
+        public static final int repeat=0x7f0a0038;
+        public static final int results=0x7f0a0035;
         public static final int secondLesson=0x7f0a0011;
         public static final int secondLessonKata=0x7f0a001a;
         public static final int secondLessonText=0x7f0a0024;
@@ -1380,13 +1397,11 @@ containing a value of this type.
         public static final int sixthLessonKata=0x7f0a001e;
         public static final int sixthLessonText=0x7f0a0028;
         public static final int sixthLessonTextKata=0x7f0a0031;
-        public static final int start=0x7f0a0037;
+        public static final int start=0x7f0a0036;
         public static final int thirdLesson=0x7f0a0012;
         public static final int thirdLessonKata=0x7f0a001b;
         public static final int thirdLessonText=0x7f0a0025;
         public static final int thirdLessonTextKata=0x7f0a002e;
-        public static final int title_activity_list_fragment=0x7f0a0035;
-        public static final int title_activity_text_fragment=0x7f0a0036;
     }
     public static final class style {
         /** 

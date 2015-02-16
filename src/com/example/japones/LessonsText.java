@@ -43,6 +43,7 @@ public class LessonsText extends Fragment {
              	Intent intent = new Intent(getActivity(), LessonActivity.class);
              	intent.putExtra ("level", level);
              	intent.putExtra ("table", root);
+             	getActivity().finish();
              	startActivity(intent);
              }
          });
