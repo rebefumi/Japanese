@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends ActionBarActivity {
 	@Override
@@ -49,8 +49,8 @@ public class MainActivity extends ActionBarActivity {
 	 */
 	public static class PlaceholderFragment extends Fragment {
 
-		Button HiraganaButton;
-		Button KatakanaButton;
+		ImageButton HiraganaButton;
+		ImageButton KatakanaButton;
 
 		public PlaceholderFragment() {
 		}
@@ -61,8 +61,8 @@ public class MainActivity extends ActionBarActivity {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
 
-			HiraganaButton = (Button) rootView.findViewById(R.id.hiragana);
-			KatakanaButton = (Button) rootView.findViewById(R.id.katakana);
+			HiraganaButton = (ImageButton) rootView.findViewById(R.id.hiragana);
+			KatakanaButton = (ImageButton) rootView.findViewById(R.id.katakana);
 
 			HiraganaButton.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {

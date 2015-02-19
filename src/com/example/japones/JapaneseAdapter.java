@@ -96,42 +96,9 @@ public class JapaneseAdapter {
 
 	}
 
-
 	public Cursor getStats(int id){
 		String sql = "SELECT * FROM results WHERE _id="+ id;
 		Cursor mCur = mDb.rawQuery(sql, null);
 		return mCur;
 	}
-
-	//     public Cursor getTestData() { 
-	//         try { 
-	//             String sql ="   " ; 
-	// 
-	//             Cursor mCur = mDb.rawQuery(sql, null); 
-	//             if (mCur!=null) { 
-	//                mCur.moveToNext(); 
-	//             } 
-	//             return mCur; 
-	//         } catch (SQLException mSQLException) { 
-	//             throw mSQLException; 
-	//         } 
-	//     }
-
-
-
-	// 	public boolean SaveEmployee(String name, String email) {
-	// 		try{
-	// 			ContentValues cv = new ContentValues();
-	// 			cv.put("Name", name);
-	// 			cv.put("Email", email);
-	// 			
-	// 			mDb.insert("Employees", null, cv);
-	//
-	// 			return true;
-	// 			
-	// 		}
-	// 		catch(Exception ex){
-	// 			return false;
-	// 		}
-	// 	}
 }

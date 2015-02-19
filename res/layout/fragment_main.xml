@@ -8,15 +8,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.japones.MainActivity$PlaceholderFragment" >
 
-    <Button
-        android:id="@+id/hiragana"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hiraganaText" />
-	 <Button
-	        android:id="@+id/katakana"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/hiragana"
-	        android:text="@string/katakanaText" />
+	 <ImageButton
+	     android:id="@+id/katakana"
+	     android:layout_width="200dp"
+	     android:layout_height="100dp"
+	     android:layout_alignLeft="@+id/hiragana"
+	     android:layout_alignParentBottom="true"
+	     android:layout_marginBottom="90dp"
+	     android:src="@drawable/katakana_button"
+	     android:text="@string/katakanaText" />
+
+	 <ImageButton
+	     android:id="@+id/hiragana"
+	     android:layout_width="200dp"
+	     android:layout_height="100dp"
+	     android:layout_above="@+id/katakana"
+	     android:layout_centerHorizontal="true"
+	     android:layout_marginBottom="34dp"
+	     android:src="@drawable/hiragana_button"
+	     android:text="@string/hiraganaText" />
+
 </RelativeLayout>

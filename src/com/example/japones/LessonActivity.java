@@ -37,6 +37,7 @@ import android.widget.TextView;
 	private int MAX_QUEST = 2;
 	private int MAX_TYPE_QUEST = 2;
 	private ResultData results; 
+	private GridView mGridView;
 	
 	static final int RESOLVER_QUESTION = 1;
 	
@@ -64,10 +65,10 @@ import android.widget.TextView;
 				setContentView(R.layout.question_type_1);
 
 				loadQuestionImage();		
-				GridView mGridviewText = (GridView) findViewById(R.id.gridText);
-				mGridviewText.setAdapter(new MyAdapter(this));
+				mGridView = (GridView) findViewById(R.id.gridText);
+				mGridView.setAdapter(new MyAdapter(this));
 				
-				mGridviewText.setOnItemClickListener(new OnItemClickListener() {
+				mGridView.setOnItemClickListener(new OnItemClickListener() {
 					public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 						verifyQuestionGrid (position, v, parent);
 						
@@ -79,10 +80,10 @@ import android.widget.TextView;
 
 				loadQuestionText();
 				
-				GridView mGridviewImage = (GridView) findViewById(R.id.gridImage);
-				mGridviewImage.setAdapter(new ImageAdapter(this));
+				mGridView = (GridView) findViewById(R.id.gridImage);
+				mGridView.setAdapter(new ImageAdapter(this));
 				
-				mGridviewImage.setOnItemClickListener(new OnItemClickListener() {
+				mGridView.setOnItemClickListener(new OnItemClickListener() {
 					public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 						verifyQuestionGrid (position, v, parent);
 						
@@ -274,13 +275,16 @@ public class ImageAdapter extends BaseAdapter {
 			results.incrementLose();
 		}	
 		
+		Button mButton = new Button(this);
+		LinearLayout ll = new LinearLayout(this); 
+		//LinearLayout ll = (LinearLayout) findViewById(R.id.quest_layout);
+		LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);		
+		lp.gravity=Gravity.BOTTOM;
+		
 		if (count < MAX_QUEST){
-			Button mButton = new Button(this);
+			
 			mButton.setText("Next");
 			
-			LinearLayout ll = new LinearLayout(this); 
-			//LinearLayout ll = (LinearLayout) findViewById(R.id.quest_layout);
-			LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			ll.addView(mButton, lp);
 			
 			mButton.setOnClickListener(new OnClickListener() {
@@ -289,11 +293,26 @@ public class ImageAdapter extends BaseAdapter {
 		        	getViewQuestion();
 		        }
 		    });
-		    this.addContentView(ll, lp);
 		}else{
-			results.insertBD(mDbHelper);
-			showResults();
+
+			mButton.setText("Finish");
+			
+			ll.addView(mButton, lp);
+			
+			mButton.setOnClickListener(new OnClickListener() {
+		        @Override
+		        public void onClick(View v) {
+		        	results.insertBD(mDbHelper);
+					showResults();		        }
+		    });
+		   
 		}
+		addContentView(ll, lp);
+		removeListeners();
+	}
+
+	private void removeListeners() {
+		mGridView.setOnItemClickListener(null);
 	}
 
 	private void showResults() {
