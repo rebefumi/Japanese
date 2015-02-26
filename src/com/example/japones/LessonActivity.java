@@ -1,5 +1,7 @@
 package com.example.japones;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 import android.annotation.SuppressLint;
@@ -27,17 +29,24 @@ import android.widget.TextView;
 	
 	private Integer [] mThumbIds = new Integer[6];
 	private String [] mTextIds = new String[6];
-	private JapaneseAdapter mDbHelper;
+	private Integer [] mAnswerIds = new Integer [6];
+	private ArrayList<Integer> numbers = new ArrayList<Integer>();
+	
 	private int level;
 	private String table;
+	
 	private int question;
 	private int questPosition;
-	private Integer [] mAnswerIds = new Integer [6];
+	
 	private int count = 0;
 	private int MAX_QUEST = 2;
 	private int MAX_TYPE_QUEST = 2;
+	
+	private JapaneseAdapter mDbHelper;
 	private ResultData results; 
 	private GridView mGridView;
+	
+
 	
 	static final int RESOLVER_QUESTION = 1;
 	
@@ -60,11 +69,17 @@ import android.widget.TextView;
 	}
 
 	private void getViewQuestion() {
+		for (int i=0; i<=5; i++){
+			numbers.add(i);
+		}
+		
+		Collections.shuffle(numbers);
+		
 		switch (selectQuestion()) {
-		case 1: loadText();
-				setContentView(R.layout.question_type_1);
+		case 1: setContentView(R.layout.question_type_1);
 
-				loadQuestionImage();		
+				loadQuestionImage();	
+				loadText();
 				mGridView = (GridView) findViewById(R.id.gridText);
 				mGridView.setAdapter(new MyAdapter(this));
 				
@@ -75,10 +90,10 @@ import android.widget.TextView;
 					}
 				});
 				break;
-		case 2: loadImages();
-				setContentView(R.layout.question_type_2);
+		case 2: setContentView(R.layout.question_type_2);
 
 				loadQuestionText();
+				loadImages();
 				
 				mGridView = (GridView) findViewById(R.id.gridImage);
 				mGridView.setAdapter(new ImageAdapter(this));
@@ -183,7 +198,7 @@ public class ImageAdapter extends BaseAdapter {
 	         
 		mDbHelper.open(); 
 		 
-		Cursor testdata = mDbHelper.getAnswerHiragana(level, table); 
+		Cursor testdata = mDbHelper.getAnswerHiragana(level, table, this.question); 
 		
 		int i=0;
 		testdata.moveToFirst();
@@ -192,7 +207,7 @@ public class ImageAdapter extends BaseAdapter {
 	    	
 	    	String aux =  table + "_" + testdata.getString(testdata.getColumnIndex("kanji"));
 	    	int id = this.getResources().getIdentifier(aux, "drawable", this.getPackageName());
-	    	mThumbIds[i] = id;
+	    	mThumbIds[numbers.get(i)] = id;
 	    	
 	    	i++;
 	    } while (testdata.moveToNext());
@@ -204,14 +219,14 @@ public class ImageAdapter extends BaseAdapter {
         
 		mDbHelper.open(); 
 		 
-		Cursor testdata = mDbHelper.getAnswerHiragana(level, table); 
+		Cursor testdata = mDbHelper.getAnswerHiragana(level, table, this.question); 
 		
 		int i=0;
 		testdata.moveToFirst();
 	    do {
 	    	getAnswersId (testdata, i);
 	    	
-	    	mTextIds[i] = testdata.getString(testdata.getColumnIndex("lectura"));
+	    	mTextIds[numbers.get(i)] = testdata.getString(testdata.getColumnIndex("lectura"));
 	    
 	    	i++;
 	    } while (testdata.moveToNext());
@@ -222,20 +237,20 @@ public class ImageAdapter extends BaseAdapter {
 	private void getAnswersId(Cursor testdata, int i) {
 		int elementId = testdata.getInt(testdata.getColumnIndex("_id"));
     	if (elementId == this.question){
-    		questPosition = i;
+    		questPosition = numbers.get(i);
     	}
-    	mAnswerIds[i] = elementId;		
+    	mAnswerIds[numbers.get(i)] = elementId;		
 	}
 
 	public void loadQuestionImage(){
 		mDbHelper.open();
 		Cursor testdata = mDbHelper.getQuestion(level, table);
-		getIdQuestion(testdata);
 		try {
 			testdata.moveToFirst();
 			ImageView mImagetView = (ImageView) findViewById(R.id.imageQ);
 	    	String aux = table + "_" + testdata.getString(testdata.getColumnIndex("kanji")); 
 			mImagetView.setImageResource(this.getResources().getIdentifier(aux, "drawable", this.getPackageName()));
+			this.question = testdata.getInt(testdata.getColumnIndex("_id"));
 		} catch (Exception ex) {
 			  throw new Error("UnableToGetQuestion"); 
 		}
@@ -244,27 +259,22 @@ public class ImageAdapter extends BaseAdapter {
 	public void loadQuestionText(){
 		mDbHelper.open();
 		Cursor testdata = mDbHelper.getQuestion(level, table);
-		getIdQuestion(testdata);
 		try {
 			testdata.moveToFirst();
 			TextView mTextView = (TextView) findViewById(R.id.textQ);
 	    	String aux =  testdata.getString(testdata.getColumnIndex("lectura"));
 			mTextView.setText(aux);
+			this.question = testdata.getInt(testdata.getColumnIndex("_id"));
 		} catch (Exception ex) {
 			  throw new Error("UnableToGetQuestion"); 
 		}
-	}
-	
-	private void getIdQuestion (Cursor mCursor){
-		mCursor.moveToFirst();
-		this.question = mCursor.getInt(mCursor.getColumnIndex("_id"));
 	}
 	
 	private void verifyQuestionGrid (int position, View v, ViewGroup parent){
 		count++;
 
 		int answer = mAnswerIds[position];
-		VerifyActivity mResult = new VerifyActivity(question, answer);
+		VerifyActivity mResult = new VerifyActivity(this.question, answer);
 		if (mResult.verifyAnswer()){
 			v.setBackgroundColor(Color.GREEN);
 			results.incrementWin();

@@ -1,10 +1,13 @@
 package com.example.japones;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.MergeCursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -43,7 +46,7 @@ public class JapaneseAdapter {
 		mDbHelper.close(); 
 	} 
 
-	public Cursor getAnswerHiragana (int level, String table){
+	public Cursor getAnswerHiragana (int level, String table, int id){
 		String sql = "";
 
 		Cursor mCount= mDb.rawQuery("SELECT count(_id) FROM "+ table +" WHERE nivel ="+ level, null);
@@ -51,22 +54,18 @@ public class JapaneseAdapter {
 		int count= mCount.getInt(0);
 		mCount.close();
 
+		Cursor mCurExtra = null;
+		
+		sql = "SELECT * FROM ( SELECT DISTINCT * FROM "+ table +" WHERE nivel="+ level +" AND _id != "+ id +" ORDER BY RANDOM() LIMIT 5";
+		sql += ") UNION ALL SELECT * FROM (SELECT * FROM " + table +" WHERE _id=" +  id + ")";
+		
 		if (count < 6){
-			sql = "SELECT * FROM "+ table +" WHERE nivel != "+level+" ORDER BY RANDOM() LIMIT 1";
-			Cursor mCurId = mDb.rawQuery(sql, null); 
-			int id = 0;
-			if (mCurId.moveToFirst()) {
-				id = mCurId.getInt(mCurId.getColumnIndex("_id"));
-			}
-			mCurId.close();
-			sql = "SELECT * FROM "+ table +" WHERE nivel="+ level +" OR _id =" + id + " ORDER BY RANDOM() LIMIT 6";
+			sql += " UNION ALL SELECT * FROM (SELECT * FROM "+ table +" WHERE nivel != "+level+" ORDER BY RANDOM() LIMIT " + (6-count)+")";
 		}
-		else{
-			sql = "SELECT * FROM "+ table +" WHERE nivel="+ level +" ORDER BY RANDOM() LIMIT 6";
-		}
-
-		Cursor mCur = mDb.rawQuery(sql, null); 
-		return mCur; 
+	
+		Cursor mCursor = mDb.rawQuery(sql, null);
+		
+		return mCursor; 
 	}
 
 	public Cursor getQuestion(int level, String table){
